@@ -1,0 +1,59 @@
+<!--Check if it is Anagram or not?-->
+
+<html>
+    <head>
+        <title>
+            Anagram Checker App
+        </title>
+        <style>
+            body{background-color:beige}
+            </style>
+        <script>
+            function onCheck(){
+                event.preventDefault(); 
+                let string1 = document.getElementById("str1");
+                let string2 = document.getElementById("str2");
+                let msg = document.getElementById("msg");
+              
+             if(string1.value.trim() == ""){
+                alert("Please enter first string");
+                msg.innerHTML="";
+                string1.focus();
+                return;
+             }
+             if(string2.value.trim() == ""){
+                alert("Please enter second string");
+                msg.innerHTML="";
+                string2.focus();
+                return;
+             }
+             let sort1 = string1.value.split("").sort().join("");
+             let sort2 = string2.value.split("").sort().join("");
+             alert(sort1);
+             alert(sort2);
+             if(sort1 == sort2){
+                msg.innerHTML = "Yes, They are anagram."
+             }else{
+                msg.innerHTML = "Yes, They are not anagram."
+             }
+            
+            }
+        </script>
+
+    </head>
+    <body>
+        <center>
+            <h1>
+                Anagram Checker App
+            </h1>
+            <form onsubmit="onCheck()">
+                <input  type="text" placeholder="enter first string...." id="str1"/>
+                <br><br>
+                <input  type="text" placeholder="enter second string...." id="str2"/>
+                <br><br>
+                <input type ="submit" value="Check"/>
+            </form>
+            <h2 id="msg"></h2>
+        </center>
+    </body>
+</html>
